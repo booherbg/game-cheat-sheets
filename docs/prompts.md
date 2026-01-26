@@ -1,6 +1,6 @@
 # Prompts & Responses
 
-Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response.
+Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response. Before starting I had already created a baseline `euchre.md` cheat sheet for a game night and wanted to automate creating of a printable html file (with formatting), serving out cheat sheets via a simple web interface, and extrapolating to other games using an LLM and `euchre.md` as a base template.
 
 ---
 
@@ -111,3 +111,53 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > Great. Update `npm run serve` to just serve out index.html, and update prompts.md with this conversation.
 
 **Summary.** Simplified `scripts/serve.js` to a basic static file server that serves files from the project root. Removed dynamic index generation and folder discovery logic (now handled by `generate-index.js`). The server now serves `index.html` at `/` and serves other files (like `/{folder}/{file}.html`) with proper content-type detection and path traversal protection. Updated `docs/prompts.md` with entries documenting both the index generation feature and the serve simplification.
+
+---
+
+## 12. Generate Hearts cheat sheet
+
+**Prompt**
+
+> Make an equivalent cheat sheet for the game of hearts, using @euchre/euchre.md as the gold standard.
+
+**Summary.** Created `hearts/hearts.md` following the same format and structure as `euchre/euchre.md`. Included Setup, Game Flow (Deal, Passing, Playing, Scoring), Card Rankings, and Strategy Tips sections. Added `build:hearts` script to `package.json`. The cheat sheet covers Hearts-specific rules like passing cards, breaking hearts, shooting the moon, and the Queen of Spades penalty.
+
+---
+
+## 13. Generate Spades cheat sheet
+
+**Prompt**
+
+> Awesome. Now do the same with spades please.
+
+**Summary.** Created `spades/spades.md` using the same template format. Documented Spades as a partnership trick-taking game where spades are always trump, including bidding mechanics, nil and blind nil bids, breaking spades rules, and scoring. Added `build:spades` script to `package.json`. The cheat sheet explains how teams bid tricks, must meet their combined bid, and the penalty/reward structure for overtricks and undertricks.
+
+---
+
+## 14. Generate Bid Euchre cheat sheet
+
+**Prompt**
+
+> Great. Add bid-euchre.md to euchre/ folder
+
+**Summary.** Created `euchre/bid-euchre.md` as a variant of euchre for individual play. Documented how players bid on tricks they'll take (0-5), the highest bidder chooses trump, and scoring where bidders must meet their bid to score points while non-bidders score for tricks taken. Used the same trump order and bower rules as regular euchre. The file is built automatically with `build:euchre` since it's in the euchre folder.
+
+---
+
+## 15. Generate Call-Ace Euchre cheat sheet
+
+**Prompt**
+
+> Do one for call-ace euchre
+
+**Summary.** Created `euchre/call-ace-euchre.md` documenting the 5-player variant where the caller names a specific card (usually an ace) and whoever holds that card becomes their secret partner. The partner's identity remains hidden until they play the called card. Included strategy tips for callers, secret partners, and defenders. Uses the same trump and bower rules as regular euchre but with adjusted scoring for 5 players.
+
+---
+
+## 16. Generate Whist cheat sheet
+
+**Prompt**
+
+> Great. Next, do one for wist
+
+**Summary.** Created `whist/whist.md` following the same format. Documented Whist as a classic partnership trick-taking game where the last card dealt determines trump (or no-trump variant). Included Setup, Game Flow, Card Rankings, and Strategy Tips. Added `build:whist` script to `package.json`. The cheat sheet explains how teams score points for tricks above 6 ("book") and play continues until one team reaches 7 points.

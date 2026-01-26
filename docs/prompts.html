@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>Prompts &amp; Responses</h1>
-<p>Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response.</p>
+<p>Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response. Before starting I had already created a baseline <code>euchre.md</code> cheat sheet for a game night and wanted to automate creating of a printable html file (with formatting), serving out cheat sheets via a simple web interface, and extrapolating to other games using an LLM and <code>euchre.md</code> as a base template.</p>
 <hr>
 <h2>1. Markdown → HTML via npm</h2>
 <p><strong>Prompt</strong></p>
@@ -80,6 +80,55 @@
 <p>As a follow-up, please model a cybersecurity researcher who is sensitive to exploiting web servers to gain unauthorized access. Audit build/serve.js to make sure we&#39;re not accidentally opening us up to common attacks.</p>
 </blockquote>
 <p><strong>Summary.</strong> Wrote <code>docs/SECURITY-AUDIT-serve.md</code> auditing path traversal, symlink escape, XSS, bind exposure, null bytes, HTTP method, info disclosure, and related issues. Hardened <code>scripts/serve.js</code>: <code>escapeHtml</code> now escapes <code>&#39;</code>; listen on <code>HOST</code> (default <code>127.0.0.1</code>) instead of all interfaces; reject <code>filename</code> containing <code>\0</code>; return 405 with <code>Allow: GET</code> for non-GET. Verified path traversal and method handling with curl. Existing allowlist + <code>startsWith</code> checks already mitigated traversal and symlink escape.</p>
+<hr>
+<h2>10. Generate static index.html and simplify serve</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Let&#39;s create a script that generates an index.html similar to what is served out by node.js - and every time <code>npm run build:all</code> is called, the script re-generates the index.html - this lets us replace the nodejs server entirely.</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>scripts/generate-index.js</code> that extracts the index generation logic from <code>serve.js</code>. It discovers all folders containing <code>.html</code> files, generates the same HTML structure as the server&#39;s dynamic index, and writes it to <code>index.html</code> at the project root. Updated <code>scripts/build.js</code> to call this script after building all folders when <code>npm run build:all</code> is invoked (no folder argument). This enables static hosting without the Node.js server.</p>
+<hr>
+<h2>11. Simplify serve to static file server</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Great. Update <code>npm run serve</code> to just serve out index.html, and update prompts.md with this conversation.</p>
+</blockquote>
+<p><strong>Summary.</strong> Simplified <code>scripts/serve.js</code> to a basic static file server that serves files from the project root. Removed dynamic index generation and folder discovery logic (now handled by <code>generate-index.js</code>). The server now serves <code>index.html</code> at <code>/</code> and serves other files (like <code>/{folder}/{file}.html</code>) with proper content-type detection and path traversal protection. Updated <code>docs/prompts.md</code> with entries documenting both the index generation feature and the serve simplification.</p>
+<hr>
+<h2>12. Generate Hearts cheat sheet</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Make an equivalent cheat sheet for the game of hearts, using @euchre/euchre.md as the gold standard.</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>hearts/hearts.md</code> following the same format and structure as <code>euchre/euchre.md</code>. Included Setup, Game Flow (Deal, Passing, Playing, Scoring), Card Rankings, and Strategy Tips sections. Added <code>build:hearts</code> script to <code>package.json</code>. The cheat sheet covers Hearts-specific rules like passing cards, breaking hearts, shooting the moon, and the Queen of Spades penalty.</p>
+<hr>
+<h2>13. Generate Spades cheat sheet</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Awesome. Now do the same with spades please.</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>spades/spades.md</code> using the same template format. Documented Spades as a partnership trick-taking game where spades are always trump, including bidding mechanics, nil and blind nil bids, breaking spades rules, and scoring. Added <code>build:spades</code> script to <code>package.json</code>. The cheat sheet explains how teams bid tricks, must meet their combined bid, and the penalty/reward structure for overtricks and undertricks.</p>
+<hr>
+<h2>14. Generate Bid Euchre cheat sheet</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Great. Add bid-euchre.md to euchre/ folder</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>euchre/bid-euchre.md</code> as a variant of euchre for individual play. Documented how players bid on tricks they&#39;ll take (0-5), the highest bidder chooses trump, and scoring where bidders must meet their bid to score points while non-bidders score for tricks taken. Used the same trump order and bower rules as regular euchre. The file is built automatically with <code>build:euchre</code> since it&#39;s in the euchre folder.</p>
+<hr>
+<h2>15. Generate Call-Ace Euchre cheat sheet</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Do one for call-ace euchre</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>euchre/call-ace-euchre.md</code> documenting the 5-player variant where the caller names a specific card (usually an ace) and whoever holds that card becomes their secret partner. The partner&#39;s identity remains hidden until they play the called card. Included strategy tips for callers, secret partners, and defenders. Uses the same trump and bower rules as regular euchre but with adjusted scoring for 5 players.</p>
+<hr>
+<h2>16. Generate Whist cheat sheet</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Great. Next, do one for wist</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>whist/whist.md</code> following the same format. Documented Whist as a classic partnership trick-taking game where the last card dealt determines trump (or no-trump variant). Included Setup, Game Flow, Card Rankings, and Strategy Tips. Added <code>build:whist</code> script to <code>package.json</code>. The cheat sheet explains how teams score points for tricks above 6 (&quot;book&quot;) and play continues until one team reaches 7 points.</p>
 
 </body>
 </html>
