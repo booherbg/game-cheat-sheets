@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "build:euchre": "node scripts/build.js euchre",
-    "build:all": "node scripts/build.js"
+    "build:docs": "node scripts/build.js docs",
+    "build:all": "node scripts/build.js",
+    "serve": "node scripts/serve.js"
   },
   "devDependencies": {
     "marked": "^15.0.0"

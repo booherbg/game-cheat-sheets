@@ -8,19 +8,28 @@ Markdown cheat sheets for card games, built to HTML.
 npm install
 ```
 
-Build one game (e.g. euchre):
+**Build** one folder (e.g. euchre or docs):
 
 ```bash
 npm run build:euchre
+npm run build:docs
 ```
 
-Build all games:
+**Build all** folders that contain `.md`:
 
 ```bash
 npm run build:all
 ```
 
-Each `.md` in a game folder becomes a `.html` with the same base name (e.g. `euchre/euchre.md` → `euchre/euchre.html`). The HTML `<title>` comes from the first `#` heading in the file.
+**Serve** the built HTML for review:
+
+```bash
+npm run serve
+```
+
+Then open http://localhost:3000. The index lists each folder with `.html` as an **h2**; links to its files appear below.
+
+Each `.md` in a folder becomes a `.html` with the same base name (e.g. `euchre/euchre.md` → `euchre/euchre.html`). The HTML `<title>` comes from the first `#` heading in the file.
 
 ## Add a new card game
 

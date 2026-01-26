@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompts &amp; Responses</title>
+  <style>
+    body { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5; max-width: 48rem; margin: 0 auto; padding: 0rem 1.5rem; }
+    h1 { font-size: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.25em; }
+    h2 { font-size: 1.25rem;}
+    h3 { font-size: 1.1rem;}
+    ul { padding-left: 1.5em; }
+    hr { border: none; border-top: 1px solid #ccc; margin: 1.5em 0; }
+    .page { page-break-after: always; }
+  </style>
+</head>
+<body>
+<h1>Prompts &amp; Responses</h1>
+<p>Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response.</p>
+<hr>
+<h2>1. Markdown → HTML via npm</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>What&#39;s the best way to port markdown to html via npm?</p>
+</blockquote>
+<p><strong>Summary.</strong> Compared three options: <strong>marked</strong> (simple, fast, good default), <strong>markdown-it</strong> (plugin-friendly), and <strong>remark</strong> (unified/doc-pipeline). Recommended <code>marked</code> for straightforward conversion and noted it supports GFM. Gave minimal <code>npm install</code> + <code>marked.parse()</code> examples for each.</p>
+<hr>
+<h2>2. <code>npm run build:euchre</code> to port <code>euchre.md</code> → <code>euchre.html</code></h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>I want to simply be able to run something like <code>npm build:euchre</code> which ports euchre/euchre.md into euchre/euchre.html</p>
+</blockquote>
+<p><strong>Summary.</strong> Added <code>package.json</code> with a <code>build:euchre</code> script and <code>marked</code> as a dev dependency. Implemented <code>scripts/build-euchre.js</code> to read <code>euchre/euchre.md</code>, convert with <code>marked</code>, wrap the result in a minimal HTML document (charset, viewport, basic CSS), and write <code>euchre/euchre.html</code>. Raw HTML in the Markdown (e.g. page-break divs) is preserved. Documented <code>npm install</code> and <code>npm run build:euchre</code> in the README.</p>
+<hr>
+<h2>3. Generic build script and title from Markdown</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>I want the build script to be generic. Just use the title in the euchre.md for the html title doc. We&#39;ll have more cheat sheets here eventually.</p>
+</blockquote>
+<p><strong>Summary.</strong> Replaced the euchre-specific script with <code>scripts/build.js</code>, which takes a sheet name as an argument (e.g. <code>node scripts/build.js euchre</code>). It reads <code>{name}/{name}.md</code> and writes <code>{name}/{name}.html</code>. The HTML <code>&lt;title&gt;</code> is taken from the first <code>#</code> heading in the Markdown (fallback: sheet name), with proper escaping. Updated <code>package.json</code> to <code>build:euchre</code> → <code>node scripts/build.js euchre</code>. Removed <code>build-euchre.js</code>. Described how to add future sheets (e.g. cribbage) with a matching folder and optional <code>build:cribbage</code> script.</p>
+<hr>
+<h2>4. <code>.gitignore</code> best practices</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Update .gitignore with best practices</p>
+</blockquote>
+<p><strong>Summary.</strong> Expanded <code>.gitignore</code> with: <code>node_modules/</code>; npm logs and <code>.npm</code>; Yarn 2+–style paths (for later use); <code>.env</code>, <code>.env.local</code>, <code>.env.*.local</code>; <code>.DS_Store</code>, <code>Thumbs.db</code>; <code>*.log</code>; <code>.idea/</code>, <code>.vscode/</code>, Vim swap files; and <code>coverage/</code>, <code>.nyc_output/</code> for future tests.</p>
+<hr>
+<h2>5. README: use and adding a new game</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Fill out very simple README.md with instructions for use and how to add a new card game</p>
+</blockquote>
+<p><strong>Summary.</strong> Wrote a short README with a <strong>Use</strong> section (<code>npm install</code>, <code>npm run build:euchre</code>, and where the HTML goes) and an <strong>Add a new card game</strong> section: create <code>{name}/{name}.md</code>, start with <code>#</code> title, optionally add <code>build:cribbage</code> in <code>package.json</code>, then run the build. Used cribbage as the example.</p>
+<hr>
+<h2>6. <code>build:all</code>, folder-based build, multiple <code>.md</code> per folder</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Add instruction for <code>build:all</code> and include euchre, update README. Also update script so it knows to use the name for the folder, but will port each .md file into its own .html file regardless of name once the folder is found</p>
+</blockquote>
+<p><strong>Summary.</strong> Reworked <code>scripts/build.js</code> to be folder-based: you pass a folder name (e.g. <code>euchre</code>); it finds every <code>*.md</code> in that folder and emits a matching <code>*.html</code> (e.g. <code>rules.md</code> → <code>rules.html</code>). With no argument, it discovers all top-level folders (except <code>node_modules</code>, <code>scripts</code>, <code>.git</code>) that contain <code>.md</code> and builds each. Added <code>build:all</code> to <code>package.json</code> (runs <code>node scripts/build.js</code>). Updated the README to document <code>build:euchre</code> and <code>build:all</code>, and to explain that a game folder can hold multiple <code>.md</code> files (names need not match the folder) and that optional <code>build:foo</code> scripts can target a single game.</p>
+<hr>
+<h2>7. Document this conversation</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Great. As the final act, let&#39;s document this conversation. Take every prompt that I had and keep it verbatim (including this one), along with a summary of the LLM response that is clear and topical. Create docs/prompts.md with smart formatting so we can document this work we did together.</p>
+</blockquote>
+<p><strong>Summary.</strong> Added <code>docs/prompts.md</code> with each user prompt quoted verbatim and a short, topical summary of the corresponding response. Used numbered sections, blockquotes for prompts, and horizontal rules between exchanges so the log is easy to scan and reuse.</p>
+
+</body>
+</html>
