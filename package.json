@@ -1,8 +1,9 @@
 {
-  "name": "euchre",
+  "name": "game-cheat-sheets",
   "private": true,
   "scripts": {
-    "build:euchre": "node scripts/build.js euchre"
+    "build:euchre": "node scripts/build.js euchre",
+    "build:all": "node scripts/build.js"
   },
   "devDependencies": {
     "marked": "^15.0.0"

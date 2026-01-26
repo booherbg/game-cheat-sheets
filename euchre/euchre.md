@@ -37,7 +37,7 @@ A trick taking card game where farmers run the show. The key with this game is t
 - Otherwise highest card of lead suit wins
 - Player who won last trick leads next trick
 
-<div style="page-break-after: always;"></div>
+<!-- <div style="page-break-after: always;"></div> -->
 
 ### 4. Scoring
 

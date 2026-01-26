@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# npm
+npm-debug.log*
+.npm
+
+# Yarn (if you use it later)
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Test / coverage (if you add later)
+coverage/
+.nyc_output/
