@@ -1,6 +1,6 @@
 # Game Cheat Sheets
 
-Markdown cheat sheets for card games, built to HTML.
+Markdown cheat sheets for card games, built to HTML. As an additional feature I included the prompts I used to generate the build system once the first cheat sheet was finished.
 
 ## Use
 
