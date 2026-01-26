@@ -81,3 +81,13 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > Finally - create a way to serve out these cheat sheets for easy review. Should present an index page with each html file available as a link, with each sub-folder availble as an h2 with links to the files below it. `npm serve` should run this.
 
 **Summary.** Added `scripts/serve.js`, a small Node HTTP server (no extra deps) that serves on port 3000 (or `PORT`). The index at `/` is generated: it discovers all top-level folders that contain `.html` (same skip list as build), renders each folder as an **h2**, and lists links to every `.html` in that folder below it. Routes like `/{folder}/{file}.html` serve only those HTML files from allowlisted folders; path traversal is blocked. Added a `serve` script to `package.json` (`npm run serve`). Updated the README with serve instructions.
+
+---
+
+## 9. Security audit of serve.js
+
+**Prompt**
+
+> As a follow-up, please model a cybersecurity researcher who is sensitive to exploiting web servers to gain unauthorized access. Audit build/serve.js to make sure we're not accidentally opening us up to common attacks.
+
+**Summary.** Wrote `docs/SECURITY-AUDIT-serve.md` auditing path traversal, symlink escape, XSS, bind exposure, null bytes, HTTP method, info disclosure, and related issues. Hardened `scripts/serve.js`: `escapeHtml` now escapes `'`; listen on `HOST` (default `127.0.0.1`) instead of all interfaces; reject `filename` containing `\0`; return 405 with `Allow: GET` for non-GET. Verified path traversal and method handling with curl. Existing allowlist + `startsWith` checks already mitigated traversal and symlink escape.

@@ -66,6 +66,20 @@
 <p>Great. As the final act, let&#39;s document this conversation. Take every prompt that I had and keep it verbatim (including this one), along with a summary of the LLM response that is clear and topical. Create docs/prompts.md with smart formatting so we can document this work we did together.</p>
 </blockquote>
 <p><strong>Summary.</strong> Added <code>docs/prompts.md</code> with each user prompt quoted verbatim and a short, topical summary of the corresponding response. Used numbered sections, blockquotes for prompts, and horizontal rules between exchanges so the log is easy to scan and reuse.</p>
+<hr>
+<h2>8. Serve cheat sheets for review</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Finally - create a way to serve out these cheat sheets for easy review. Should present an index page with each html file available as a link, with each sub-folder availble as an h2 with links to the files below it. <code>npm serve</code> should run this.</p>
+</blockquote>
+<p><strong>Summary.</strong> Added <code>scripts/serve.js</code>, a small Node HTTP server (no extra deps) that serves on port 3000 (or <code>PORT</code>). The index at <code>/</code> is generated: it discovers all top-level folders that contain <code>.html</code> (same skip list as build), renders each folder as an <strong>h2</strong>, and lists links to every <code>.html</code> in that folder below it. Routes like <code>/{folder}/{file}.html</code> serve only those HTML files from allowlisted folders; path traversal is blocked. Added a <code>serve</code> script to <code>package.json</code> (<code>npm run serve</code>). Updated the README with serve instructions.</p>
+<hr>
+<h2>9. Security audit of serve.js</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>As a follow-up, please model a cybersecurity researcher who is sensitive to exploiting web servers to gain unauthorized access. Audit build/serve.js to make sure we&#39;re not accidentally opening us up to common attacks.</p>
+</blockquote>
+<p><strong>Summary.</strong> Wrote <code>docs/SECURITY-AUDIT-serve.md</code> auditing path traversal, symlink escape, XSS, bind exposure, null bytes, HTTP method, info disclosure, and related issues. Hardened <code>scripts/serve.js</code>: <code>escapeHtml</code> now escapes <code>&#39;</code>; listen on <code>HOST</code> (default <code>127.0.0.1</code>) instead of all interfaces; reject <code>filename</code> containing <code>\0</code>; return 405 with <code>Allow: GET</code> for non-GET. Verified path traversal and method handling with curl. Existing allowlist + <code>startsWith</code> checks already mitigated traversal and symlink escape.</p>
 
 </body>
 </html>

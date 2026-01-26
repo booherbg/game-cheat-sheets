@@ -5,6 +5,7 @@ const http = require('http');
 const root = path.resolve(__dirname, '..');
 const skipDirs = new Set(['node_modules', 'scripts', '.git']);
 const port = Number(process.env.PORT) || 3000;
+const host = process.env.HOST || '127.0.0.1';
 
 function escapeHtml(s) {
   return s
@@ -100,7 +101,12 @@ function serveFile(res, folder, filename) {
 }
 
 const server = http.createServer((req, res) => {
-  const u = new URL(req.url || '/', `http://localhost:${port}`);
+  if (req.method !== 'GET') {
+    res.writeHead(405, { Allow: 'GET' });
+    res.end();
+    return;
+  }
+  const u = new URL(req.url || '/', `http://${host}:${port}`);
   const p = u.pathname.replace(/\/$/, '') || '/';
   if (p === '/' || p === '/index.html') {
     send(res, 200, generateIndex());
@@ -120,6 +126,6 @@ const server = http.createServer((req, res) => {
   serveFile(res, folder, filename);
 });
 
-server.listen(port, () => {
-  console.log(`Serving at http://localhost:${port}`);
+server.listen(port, host, () => {
+  console.log(`Serving at http://${host}:${port}`);
 });
