@@ -1,0 +1,10 @@
+{
+  "name": "euchre",
+  "private": true,
+  "scripts": {
+    "build:euchre": "node scripts/build.js euchre"
+  },
+  "devDependencies": {
+    "marked": "^15.0.0"
+  }
+}
