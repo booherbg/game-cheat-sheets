@@ -87,4 +87,6 @@ if (folder) {
     process.exit(1);
   }
   for (const f of folders) buildFolder(f);
+  // Generate index.html after building all folders
+  require('./generate-index.js');
 }

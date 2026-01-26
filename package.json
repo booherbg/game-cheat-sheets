@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "build:euchre": "node scripts/build.js euchre",
+    "build:hearts": "node scripts/build.js hearts",
+    "build:spades": "node scripts/build.js spades",
+    "build:whist": "node scripts/build.js whist",
     "build:docs": "node scripts/build.js docs",
     "build:all": "node scripts/build.js",
     "serve": "node scripts/serve.js"

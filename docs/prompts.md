@@ -91,3 +91,23 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > As a follow-up, please model a cybersecurity researcher who is sensitive to exploiting web servers to gain unauthorized access. Audit build/serve.js to make sure we're not accidentally opening us up to common attacks.
 
 **Summary.** Wrote `docs/SECURITY-AUDIT-serve.md` auditing path traversal, symlink escape, XSS, bind exposure, null bytes, HTTP method, info disclosure, and related issues. Hardened `scripts/serve.js`: `escapeHtml` now escapes `'`; listen on `HOST` (default `127.0.0.1`) instead of all interfaces; reject `filename` containing `\0`; return 405 with `Allow: GET` for non-GET. Verified path traversal and method handling with curl. Existing allowlist + `startsWith` checks already mitigated traversal and symlink escape.
+
+---
+
+## 10. Generate static index.html and simplify serve
+
+**Prompt**
+
+> Let's create a script that generates an index.html similar to what is served out by node.js - and every time `npm run build:all` is called, the script re-generates the index.html - this lets us replace the nodejs server entirely.
+
+**Summary.** Created `scripts/generate-index.js` that extracts the index generation logic from `serve.js`. It discovers all folders containing `.html` files, generates the same HTML structure as the server's dynamic index, and writes it to `index.html` at the project root. Updated `scripts/build.js` to call this script after building all folders when `npm run build:all` is invoked (no folder argument). This enables static hosting without the Node.js server.
+
+---
+
+## 11. Simplify serve to static file server
+
+**Prompt**
+
+> Great. Update `npm run serve` to just serve out index.html, and update prompts.md with this conversation.
+
+**Summary.** Simplified `scripts/serve.js` to a basic static file server that serves files from the project root. Removed dynamic index generation and folder discovery logic (now handled by `generate-index.js`). The server now serves `index.html` at `/` and serves other files (like `/{folder}/{file}.html`) with proper content-type detection and path traversal protection. Updated `docs/prompts.md` with entries documenting both the index generation feature and the serve simplification.
