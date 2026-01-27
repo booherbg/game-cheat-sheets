@@ -1,22 +1,21 @@
 # Call-Ace Euchre Cheat Sheet
 
-A variant of euchre for 5 players where the caller names a specific card (usually an ace) and whoever holds that card becomes their secret partner. The partner's identity remains hidden until they play the called card. Uses the same trump and bower rules as regular euchre.
+A variant of euchre for 4 to 6 players, all playing as individuals. The rules are the same as regular euchre except that instead of the maker having the option to play alone, they have the option to play with a partner. The maker does not choose a partner by name but says, "I call upon the ace of (name of suit)." The person holding that ace becomes the maker's partner. (Example: "I call upon the ace of hearts" — the player with the ace of hearts in hand is the maker's partner.) If no one was dealt the ace that the maker named, the maker plays without a partner. Uses the same trump and bower rules as regular euchre.
 
 ## Setup
 - Deck: 9–A only (24 cards)
-- Players: 5 (sometimes 6 with jokers)
-- Scoring: Caller and partner vs. other 3 players
+- Players: 4 to 6, all playing as individuals
+- Maker may have a partner (the holder of the called ace) or play alone
+- Partner identity is unknown until the called ace is played
 - No table talk or signaling
-- Partner identity is secret until called card is played
 
 ----
 
 ## Game Flow
 
 ### 1. Deal
-- Dealer gives 4 cards each (2/2 alternating or any fair deal)
-- 4 remaining cards, flip top card = potential trump
-- With 5 players, each gets 4 cards, 4 cards remain in kitty
+- Dealer gives cards according to player count (e.g., 5 players: 4 each, 4 in kitty; 6 players: 4 each; 4 players: 6 each)
+- Flip top card of remaining deck = potential trump
 
 ### 2. Bidding (Choosing Trump and Calling Partner)
 
@@ -24,21 +23,20 @@ A variant of euchre for 5 players where the caller names a specific card (usuall
 - Left of dealer starts the bid, moves clockwise
 - Each player: "order up" the face-up suit to the dealer or pass
 - If ordered up: dealer picks up card and discards one from their hand → trump is now set
-- Caller must then name a card (usually an ace) to call their partner
-- Example: "Ace of spades" or "King of hearts"
+- Maker must then say, "I call upon the ace of (suit)" to call their partner
 
 **Round 2 — Call Trump**
 - If all pass, dealer flips top card down, bid continues clockwise
 - Players may name any other suit as trump
-- If a player calls trump, they must also name a card to call their partner
-- If all pass again, dealer must choose ("stick the dealer") and call a partner card
+- If a player calls trump, they become the maker and must call upon the ace of a suit
+- If all pass again, dealer must choose ("stick the dealer") and call upon an ace
 
 **Calling Your Partner:**
-- Caller names a specific card (e.g., "Ace of spades", "King of hearts")
-- The player holding that card becomes the caller's partner
-- Partner's identity is secret until they play the called card
-- If caller holds the called card themselves, they play alone (no partner)
-- If called card is in the kitty (undealt cards), caller plays alone
+- Maker says "I call upon the ace of (hearts / diamonds / clubs / spades)"
+- The player holding that ace becomes the maker's partner
+- Partner's identity is unknown until they play the called ace
+- If the maker holds that ace, they play alone (no partner)
+- If no one was dealt that ace (e.g. it is in the kitty), the maker plays without a partner
 
 ### 3. Playing
 
@@ -55,25 +53,24 @@ A variant of euchre for 5 players where the caller names a specific card (usuall
 - Player who won last trick leads next trick
 
 **Revealing Your Partner:**
-- When the called card is played, the partner's identity is revealed
-- Until then, players must guess who the partner might be
-- Partner should try to help caller without being obvious
+- When the called ace is played, the partner's identity is revealed
+- Until then, players do not know who the partner is
+- Partner should try to help the maker without being obvious
 
 ### 4. Scoring
 
-After all 5 tricks are finished, teams score points:
+After all 5 tricks are finished, points are scored:
 
-**If caller's team (caller + partner) gets 3+ tricks:**
-- 3-4 tricks: 1 point each to caller and partner
-- 5 tricks ("march"): 2 points each to caller and partner
+**If the maker plays alone (no partner):**
+- March (5 tricks): maker earns points equal to the number of players in the game (4, 5, or 6)
+- 3 or 4 tricks: maker gets 1 point
 
-**If defenders get 3+ tricks:**
-- 2 points each to the 3 defenders (caller's team got "euchred")
+**If a partnership (maker + partner) gets 3+ tricks:**
+- March (5 tricks): each partner earns the same number of points — 3 or 4 players = 2 points each; 5 or 6 players = 3 points each
+- 3 or 4 tricks: each partner gets 1 point
 
-**If caller plays alone (no partner):**
-- 3-4 tricks: 1 point
-- 5 tricks: 4 points
-- If euchred: 2 points each to the 4 defenders
+**If the maker or the maker's partnership is euchred (defenders take 3+ tricks):**
+- Each of the other players (everyone except maker, and except maker's partner if any) gets 2 points
 
 **Game End:**
 - Deal moves to the left (clockwise)
@@ -94,27 +91,24 @@ Remember: Jack of the trump suit is the highest card, the other jack of the same
 
 ## Strategy Tips
 
-**For the Caller:**
-- Call a card you don't have (so you get a partner)
-- Call a high card (ace or king) that's likely to be in someone's hand
-- Consider calling a card in the trump suit if you have strong trump
-- Leading a non-trump Ace is often strong
-- Watch for signals from potential partners before the called card is revealed
-- If you have a very strong hand, consider calling a card you hold to play alone
+**For the Maker:**
+- Call an ace you don't have (so you get a partner)
+- Call the ace of a suit that's likely to be in someone's hand
+- Consider calling the ace of trump if you have strong trump
+- Leading a non-trump ace is often strong
+- If you have a very strong hand, consider calling an ace you hold to play alone (you earn number-of-players points on a march)
 
-**For the Secret Partner:**
-- Try to help the caller without being obvious
+**For the Partner (holder of the called ace):**
+- Try to help the maker without being obvious
 - Don't reveal yourself too early unless necessary
-- If you have the called card, consider when to play it strategically
-- Help the caller win tricks, but don't make it obvious you're the partner
-- If you can win a trick the caller needs, do it subtly
+- Consider when to play the called ace strategically
+- Help the maker win tricks, but don't make it obvious you're the partner
 
-**For Defenders:**
+**For the Other Players:**
 - Try to identify who the partner might be
-- Work together (tacitly) to euchre the caller
+- Work together (tacitly) to euchre the maker — each of you gets 2 points if you do
 - Watch for unusual plays that might indicate partnership
 - If you suspect someone is the partner, try to force them to reveal themselves
-- Don't waste high cards if you're not sure who the partner is
 
 **General Strategy:**
 - Euchre is about control, not just high cards
@@ -123,4 +117,3 @@ Remember: Jack of the trump suit is the highest card, the other jack of the same
 - Being "two suited" is very powerful
 - General rule: avoid trumping your partner's ace if they are winning the trick
 - In call-ace, reading the table and identifying the partner is crucial
-- If you're the partner, balance helping with not being obvious
