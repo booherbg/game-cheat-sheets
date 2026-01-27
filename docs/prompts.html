@@ -178,6 +178,14 @@ Call-Ace Euchre … [4–6 players, &quot;I call upon the ace of (suit)&quot;, m
 <p>Add a link back to the index on all pages generated</p>
 </blockquote>
 <p><strong>Summary.</strong> Updated <code>scripts/build.js</code> so every built page gets a nav line at the top: <code>&lt;p class=&quot;nav&quot;&gt;&lt;a href=&quot;…/index.html&quot;&gt;← Cheat Sheets&lt;/a&gt;&lt;/p&gt;</code>. The href uses one or more <code>../</code> based on folder depth (<code>folder.split(path.sep).map(() =&gt; &#39;..&#39;).join(&#39;/&#39;)</code>) so it resolves correctly from any <code>{folder}/{base}.html</code>. Added <code>.nav</code> and <code>.nav a</code> styles. Rebuilt all pages; the index itself is produced by <code>generate-index.js</code> and is unchanged.</p>
+<hr>
+<h2>23. Use relative paths for index links (GitHub Pages)</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Github projects are hosted on a domain - index works great but when I click through I get a 404 not found.
+Links probably need to use relative paths intead of absolute (<code>./euchre</code> instead of <code>/euchre</code>)</p>
+</blockquote>
+<p><strong>Summary.</strong> Changed <code>scripts/generate-index.js</code> so index links use relative paths instead of absolute. Replaced <code>/${folder}/${f}</code> with <code>${folder}/${f}</code> so hrefs are e.g. <code>euchre/euchre.html</code> rather than <code>/euchre/euchre.html</code>. On GitHub Pages (or any host where the site is served from a subpath like <code>username.github.io/repo-name/</code>), absolute paths resolve to the domain root and 404; relative paths resolve correctly. The back-to-index links in built pages already use <code>../index.html</code> from <code>build.js</code> and work as-is. Regenerated <code>index.html</code> via the build.</p>
 
 </body>
 </html>

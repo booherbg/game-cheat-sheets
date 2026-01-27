@@ -36,7 +36,7 @@ function generateIndex() {
     const links = files
       .map((f) => {
         const base = path.basename(f, '.html');
-        const href = `/${folder}/${f}`;
+        const href = `${folder}/${f}`;
         return `    <li><a href="${escapeHtml(href)}">${escapeHtml(base)}</a></li>`;
       })
       .join('\n');

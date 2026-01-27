@@ -224,3 +224,14 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > Add a link back to the index on all pages generated
 
 **Summary.** Updated `scripts/build.js` so every built page gets a nav line at the top: `<p class="nav"><a href="…/index.html">← Cheat Sheets</a></p>`. The href uses one or more `../` based on folder depth (`folder.split(path.sep).map(() => '..').join('/')`) so it resolves correctly from any `{folder}/{base}.html`. Added `.nav` and `.nav a` styles. Rebuilt all pages; the index itself is produced by `generate-index.js` and is unchanged.
+
+---
+
+## 23. Use relative paths for index links (GitHub Pages)
+
+**Prompt**
+
+> Github projects are hosted on a domain - index works great but when I click through I get a 404 not found.
+> Links probably need to use relative paths intead of absolute (`./euchre` instead of `/euchre`)
+
+**Summary.** Changed `scripts/generate-index.js` so index links use relative paths instead of absolute. Replaced `/${folder}/${f}` with `${folder}/${f}` so hrefs are e.g. `euchre/euchre.html` rather than `/euchre/euchre.html`. On GitHub Pages (or any host where the site is served from a subpath like `username.github.io/repo-name/`), absolute paths resolve to the domain root and 404; relative paths resolve correctly. The back-to-index links in built pages already use `../index.html` from `build.js` and work as-is. Regenerated `index.html` via the build.
