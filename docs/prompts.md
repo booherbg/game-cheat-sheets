@@ -161,3 +161,66 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > Great. Next, do one for wist
 
 **Summary.** Created `whist/whist.md` following the same format. Documented Whist as a classic partnership trick-taking game where the last card dealt determines trump (or no-trump variant). Included Setup, Game Flow, Card Rankings, and Strategy Tips. Added `build:whist` script to `package.json`. The cheat sheet explains how teams score points for tricks above 6 ("book") and play continues until one team reaches 7 points.
+
+---
+
+## 17. Update Call-Ace Euchre to new ruleset
+
+**Prompt**
+
+> Update the call-ace euchre to use this ruleset:
+> Call-Ace Euchre … [4–6 players, "I call upon the ace of (suit)", maker's partner or alone; scoring: alone march = number of players, alone 3–4 tricks = 1; partnership march = 2 each (3–4 players) or 3 each (5–6); partnership 3–4 tricks = 1 each; euchred = 2 to each other player.]
+
+**Summary.** Rewrote `euchre/call-ace-euchre.md` to match the given rules. Set player count to 4–6, required the maker to say "I call upon the ace of (suit)" (ace-only), and rewrote scoring for maker alone, partnership, and euchred cases. Adjusted deal, bidding, and strategy for maker/partner/other players. Rebuilt HTML via the euchre build.
+
+---
+
+## 18. Add Two-Handed Euchre variant
+
+**Prompt**
+
+> Add a variant for 2-handed euchre from here:
+> https://euchre.com/blog/two-handed-euchre/
+
+**Summary.** Created `euchre/two-handed-euchre.md` (and generated HTML) from the Euchre.com two-handed rules. Documented 24-card deck, 2 players, deal (4 hand + 4 face-down + 4 face-up each), trick bidding (minimum 7, Spades-style), only maker scores, 12 tricks per round, and scoring 1–6 for 7–12 tricks; game to 10. Included trump order and strategy. Added the "other variation" (5+3 cards, choose best 5 from 8). Full build regenerated the index.
+
+---
+
+## 19. Add Euchre Solitaire variant
+
+**Prompt**
+
+> Great. Write one for euchre solitaire
+> https://www.pagat.com/invented/euchre_solitaire.html
+
+**Summary.** Created `euchre/euchre-solitaire.md` from the Pagat.com Euchre Solitaire rules. Documented solo play versus the deck: 5 cards + 1 turn card, order up or name trump, you lead first; when you lead the deck burns from the top until it can follow suit or trump; when the deck leads you must follow suit. Scoring as classic two-handed (3–4 = 1, march = 2, euchred = 2 for deck; alone = 4 or −4). Included trump order, running out of cards, and strategy. Built HTML and updated index.
+
+---
+
+## 20. Add Joker/Benny rule to euchre
+
+**Prompt**
+
+> Add a rule to euchre that shows how to use a Joker ("Benny" or "British Euchre")
+
+**Summary.** Added an optional section to `euchre/euchre.md` titled "Optional: Joker / Benny ('British Euchre')". Described a 25-card deck (24 + Joker or 2♠), Benny as highest trump above the right bower, and three house rules when the Benny is the turn card: dealer chooses trump, trump is Spades, or blind bid. User later removed this section and requested a separate British Euchre file.
+
+---
+
+## 21. British Euchre as separate file
+
+**Prompt**
+
+> Great. Actually take out the part on benny and create a new british-euchre.md file based on the rules
+
+**Summary.** Removed the Benny/Joker section from `euchre/euchre.md`. Created `euchre/british-euchre.md` as a full standalone cheat sheet for British Euchre: 25-card deck, Benny as highest trump, deal and bidding (including when the Benny is the turn card), play, scoring same as standard euchre, optional game to 11, trump-order table with Benny, and "when Benny is turned face-up" options (dealer chooses, spades, blind bid). Built `british-euchre.html` and regenerated the index. (The file was added in a follow-up after the user noted it had not been created.)
+
+---
+
+## 22. Add back-to-index link on all generated pages
+
+**Prompt**
+
+> Add a link back to the index on all pages generated
+
+**Summary.** Updated `scripts/build.js` so every built page gets a nav line at the top: `<p class="nav"><a href="…/index.html">← Cheat Sheets</a></p>`. The href uses one or more `../` based on folder depth (`folder.split(path.sep).map(() => '..').join('/')`) so it resolves correctly from any `{folder}/{base}.html`. Added `.nav` and `.nav a` styles. Rebuilt all pages; the index itself is produced by `generate-index.js` and is unchanged.

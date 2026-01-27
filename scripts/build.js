@@ -22,6 +22,7 @@ function buildFile(folder, base) {
   const titleMatch = md.match(/^#\s+(.+)$/m);
   const title = titleMatch ? titleMatch[1].trim() : base;
   const body = marked.parse(md);
+  const indexHref = folder.split(path.sep).map(() => '..').join('/') || '..';
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,9 @@ function buildFile(folder, base) {
   <title>${escapeHtml(title)}</title>
   <style>
     body { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5; max-width: 48rem; margin: 0 auto; padding: 0rem 1.5rem; }
+    .nav { margin-bottom: 1rem; font-size: 0.9rem; }
+    .nav a { color: #0066cc; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
     h1 { font-size: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.25em; }
     h2 { font-size: 1.25rem;}
     h3 { font-size: 1.1rem;}
@@ -39,6 +43,7 @@ function buildFile(folder, base) {
   </style>
 </head>
 <body>
+<p class="nav"><a href="${indexHref}/index.html">← Cheat Sheets</a></p>
 ${body}
 </body>
 </html>
