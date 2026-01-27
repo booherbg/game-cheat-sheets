@@ -133,6 +133,51 @@
 <p>Great. Next, do one for wist</p>
 </blockquote>
 <p><strong>Summary.</strong> Created <code>whist/whist.md</code> following the same format. Documented Whist as a classic partnership trick-taking game where the last card dealt determines trump (or no-trump variant). Included Setup, Game Flow, Card Rankings, and Strategy Tips. Added <code>build:whist</code> script to <code>package.json</code>. The cheat sheet explains how teams score points for tricks above 6 (&quot;book&quot;) and play continues until one team reaches 7 points.</p>
+<hr>
+<h2>17. Update Call-Ace Euchre to new ruleset</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Update the call-ace euchre to use this ruleset:
+Call-Ace Euchre … [4–6 players, &quot;I call upon the ace of (suit)&quot;, maker&#39;s partner or alone; scoring: alone march = number of players, alone 3–4 tricks = 1; partnership march = 2 each (3–4 players) or 3 each (5–6); partnership 3–4 tricks = 1 each; euchred = 2 to each other player.]</p>
+</blockquote>
+<p><strong>Summary.</strong> Rewrote <code>euchre/call-ace-euchre.md</code> to match the given rules. Set player count to 4–6, required the maker to say &quot;I call upon the ace of (suit)&quot; (ace-only), and rewrote scoring for maker alone, partnership, and euchred cases. Adjusted deal, bidding, and strategy for maker/partner/other players. Rebuilt HTML via the euchre build.</p>
+<hr>
+<h2>18. Add Two-Handed Euchre variant</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Add a variant for 2-handed euchre from here:
+<a href="https://euchre.com/blog/two-handed-euchre/">https://euchre.com/blog/two-handed-euchre/</a></p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>euchre/two-handed-euchre.md</code> (and generated HTML) from the Euchre.com two-handed rules. Documented 24-card deck, 2 players, deal (4 hand + 4 face-down + 4 face-up each), trick bidding (minimum 7, Spades-style), only maker scores, 12 tricks per round, and scoring 1–6 for 7–12 tricks; game to 10. Included trump order and strategy. Added the &quot;other variation&quot; (5+3 cards, choose best 5 from 8). Full build regenerated the index.</p>
+<hr>
+<h2>19. Add Euchre Solitaire variant</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Great. Write one for euchre solitaire
+<a href="https://www.pagat.com/invented/euchre_solitaire.html">https://www.pagat.com/invented/euchre_solitaire.html</a></p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>euchre/euchre-solitaire.md</code> from the Pagat.com Euchre Solitaire rules. Documented solo play versus the deck: 5 cards + 1 turn card, order up or name trump, you lead first; when you lead the deck burns from the top until it can follow suit or trump; when the deck leads you must follow suit. Scoring as classic two-handed (3–4 = 1, march = 2, euchred = 2 for deck; alone = 4 or −4). Included trump order, running out of cards, and strategy. Built HTML and updated index.</p>
+<hr>
+<h2>20. Add Joker/Benny rule to euchre</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Add a rule to euchre that shows how to use a Joker (&quot;Benny&quot; or &quot;British Euchre&quot;)</p>
+</blockquote>
+<p><strong>Summary.</strong> Added an optional section to <code>euchre/euchre.md</code> titled &quot;Optional: Joker / Benny (&#39;British Euchre&#39;)&quot;. Described a 25-card deck (24 + Joker or 2♠), Benny as highest trump above the right bower, and three house rules when the Benny is the turn card: dealer chooses trump, trump is Spades, or blind bid. User later removed this section and requested a separate British Euchre file.</p>
+<hr>
+<h2>21. British Euchre as separate file</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Great. Actually take out the part on benny and create a new british-euchre.md file based on the rules</p>
+</blockquote>
+<p><strong>Summary.</strong> Removed the Benny/Joker section from <code>euchre/euchre.md</code>. Created <code>euchre/british-euchre.md</code> as a full standalone cheat sheet for British Euchre: 25-card deck, Benny as highest trump, deal and bidding (including when the Benny is the turn card), play, scoring same as standard euchre, optional game to 11, trump-order table with Benny, and &quot;when Benny is turned face-up&quot; options (dealer chooses, spades, blind bid). Built <code>british-euchre.html</code> and regenerated the index. (The file was added in a follow-up after the user noted it had not been created.)</p>
+<hr>
+<h2>22. Add back-to-index link on all generated pages</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Add a link back to the index on all pages generated</p>
+</blockquote>
+<p><strong>Summary.</strong> Updated <code>scripts/build.js</code> so every built page gets a nav line at the top: <code>&lt;p class=&quot;nav&quot;&gt;&lt;a href=&quot;…/index.html&quot;&gt;← Cheat Sheets&lt;/a&gt;&lt;/p&gt;</code>. The href uses one or more <code>../</code> based on folder depth (<code>folder.split(path.sep).map(() =&gt; &#39;..&#39;).join(&#39;/&#39;)</code>) so it resolves correctly from any <code>{folder}/{base}.html</code>. Added <code>.nav</code> and <code>.nav a</code> styles. Rebuilt all pages; the index itself is produced by <code>generate-index.js</code> and is unchanged.</p>
 
 </body>
 </html>
