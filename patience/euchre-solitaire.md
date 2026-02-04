@@ -1,6 +1,6 @@
 # Euchre Solitaire Cheat Sheet
 
-Solo euchre against the deck. You get five cards and one card is turned for trump; you must either order up that suit or name another trump. You lead first. When you lead, the deck turns cards from the top until it can follow suit or play trump—that card is the deck’s play, so the deck may use several cards in one trick. When the deck leads, you must follow suit if you can. Scoring matches classic two-handed euchre: 3–4 tricks = 1 point, march = 2, euchred = 2 for the deck; going alone pays 4 or costs 4. First to 10 wins.
+Solo euchre against the deck. You get five cards and one card is turned for trump; you must either order up that suit or name another trump. You lead first. When you lead, the deck turns cards from the top until it can follow suit or play trump—that card is the deck's play, so the deck may use several cards in one trick. When the deck leads, you must follow suit if you can. Scoring matches classic two-handed euchre: 3–4 tricks = 1 point, march = 2, euchred = 2 for the deck; going alone pays 4 or costs 4. First to 10 wins.
 
 *Source: [Pagat.com – Euchre Solitaire](https://www.pagat.com/invented/euchre_solitaire.html)*
 
@@ -19,7 +19,7 @@ Solo euchre against the deck. You get five cards and one card is turned for trum
 ### 2. Choose Trump
 You must do one of the following:
 
-- **Order up:** The turned card’s suit is trump. Turn that card face-down on top of the deck.
+- **Order up:** The turned card's suit is trump. Turn that card face-down on top of the deck.
 - **Name trump:** Choose a different suit as trump. Put the turned card on the **bottom** of the deck.
 
 Trump is now set. The rest of the deck is your opponent for the round.
@@ -28,7 +28,7 @@ Trump is now set. The rest of the deck is your opponent for the round.
 
 **You lead to the first trick.** Then:
 
-**When you lead to a trick:** The deck plays from the top. Turn cards face-up **one at a time** until you turn a card that **follows suit or is trump**. That card is the deck’s play for the trick. (Cards turned before it are effectively used and no longer in play—the deck can run out of cards this way.)
+**When you lead to a trick:** The deck plays from the top. Turn cards face-up **one at a time** until you turn a card that **follows suit or is trump**. That card is the deck's play for the trick. (Cards turned before it are effectively used and no longer in play—the deck can run out of cards this way.)
 
 **When the deck wins the trick:** The deck **leads the next trick** by exposing its top card (one card).
 
@@ -42,7 +42,7 @@ You play **5 tricks** per deal. Higher card of the lead suit wins, or trump beat
 
 Score is you vs. the deck. Only one side scores per deal.
 
-**If you take 3 or more tricks (no “go alone”):**
+**If you take 3 or more tricks (no "go alone"):**
 - 3–4 tricks: **you get 1 point**
 - 5 tricks (march): **you get 2 points**
 

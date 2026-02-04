@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider Solitaire Cheat Sheet</title>
+  <style>
+    body { font-family: system-ui, sans-serif; font-size: 14px; line-height: 1.5; max-width: 48rem; margin: 0 auto; padding: 0rem 1.5rem; }
+    .nav { margin-bottom: 1rem; font-size: 0.9rem; }
+    .nav a { color: #0066cc; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; }
+    h1 { font-size: 1.5rem; border-bottom: 1px solid #ccc; padding-bottom: 0.25em; }
+    h2 { font-size: 1.25rem;}
+    h3 { font-size: 1.1rem;}
+    ul { padding-left: 1.5em; }
+    hr { border: none; border-top: 1px solid #ccc; margin: 1.5em 0; }
+    .page { page-break-after: always; }
+  </style>
+</head>
+<body>
+<p class="nav"><a href="../index.html">← Cheat Sheets</a></p>
+<h1>Spider Solitaire Cheat Sheet</h1>
+<p>Spider uses two decks (104 cards). Build descending sequences (K down to A) on the tableau; only <strong>same-suit</strong> complete sequences (K→A) may be removed. When you&#39;re stuck, deal a new row of 10 cards from the stock—but you <strong>cannot deal</strong> while any column is empty. Win by clearing all eight sequences.</p>
+<p><em>Standard rules; <a href="https://bicyclecards.com/how-to-play/spider-solitaire">Bicycle Cards</a> uses an alternate final deal (see Dealing from the stock).</em></p>
+<h2>Setup</h2>
+<ul>
+<li>Deck: <strong>two standard 52-card decks</strong> (104 cards); jokers removed.</li>
+<li>Players: 1</li>
+<li><strong>Tableau:</strong> 10 columns. <strong>54 cards</strong> are dealt: the first 4 columns get <strong>6 cards</strong> each, the next 6 columns get <strong>5 cards</strong> each. Only the <strong>top card</strong> of each column is face-up; the rest are face-down.</li>
+<li><strong>Stock:</strong> Remaining <strong>50 cards</strong>, face-down.</li>
+<li><strong>Foundation:</strong> Completed same-suit sequences (K down to A) are removed from the tableau and set aside; no separate foundation piles—you &quot;discard&quot; full sequences.</li>
+</ul>
+<hr>
+<h2>Game Flow</h2>
+<h3>Building on the tableau</h3>
+<ul>
+<li>Build <strong>down</strong> in <strong>descending order</strong> (e.g. 9 on 10, Q on K). <strong>Suits may be mixed</strong> when building—you can put any 8 on any 9.</li>
+<li>You may move a <strong>single card</strong> or a <strong>complete sequence</strong> of cards (in descending order, any suits) as a unit, as long as the move is valid (the bottom card of the moved group goes on a card one rank higher).</li>
+<li>Only a <strong>King</strong> (or a sequence headed by a King) may be placed in an <strong>empty column</strong>.</li>
+<li>When you move all face-up cards off a column, <strong>turn the next card face-up</strong>.</li>
+</ul>
+<h3>Removing sequences</h3>
+<ul>
+<li>When a column has a <strong>complete descending sequence in one suit</strong> from <strong>King down to Ace</strong>, that sequence is <strong>removed</strong> from the tableau (set aside). That frees the column (or the cards under it). You do not build &quot;foundations&quot; on the side—you simply remove the 13 cards from play.</li>
+<li><strong>Goal:</strong> Remove all <strong>eight</strong> sequences (2 per suit in the standard game).</li>
+</ul>
+<h3>Dealing from the stock</h3>
+<ul>
+<li>You start with <strong>50 cards</strong> in the stock. When you have <strong>no (or no more) moves</strong>, you may deal <strong>one new row</strong> from the stock: one card face-up onto the <strong>top</strong> of each of the 10 columns. Each deal uses <strong>10 cards</strong> (one per column).</li>
+<li><strong>Rule:</strong> You <strong>cannot deal</strong> if <strong>any column is empty</strong>. You must fill empty columns with cards or sequences before you are allowed to deal from the stock.</li>
+<li><strong>Standard rule:</strong> There are <strong>5 deals</strong> of 10 cards each. All <strong>50 cards</strong> enter play, so the game is winnable. After 5 deals the stock is empty.</li>
+<li><strong>Alternate rule (e.g. Bicycle Cards):</strong> Some rule sets say the <strong>final deal</strong> is only <strong>4 cards</strong>—placed on the first four columns—leaving <strong>6 cards</strong> in the stock that are never dealt. That variant can make the game unwinnable if key cards are among those 6; use the standard rule above if you want a fair, winnable game.</li>
+</ul>
+<h3>Winning</h3>
+<ul>
+<li>You win when all <strong>eight</strong> same-suit sequences (K→A) have been removed from the tableau.</li>
+</ul>
+<hr>
+<h2>Difficulty variants</h2>
+<p>Rules above are for <strong>4 suits</strong> (hearts, diamonds, clubs, spades). Same two decks for all; only what &quot;suit&quot; means when <strong>removing</strong> a sequence changes:</p>
+<ul>
+<li><strong>4 suits:</strong> Suit = actual suit. (Standard—rules above.) Hardest.</li>
+<li><strong>2 suits:</strong> Suit = <strong>red</strong> (hearts + diamonds) or <strong>black</strong> (spades + clubs). A removable sequence must be all red or all black. Intermediate.</li>
+<li><strong>1 suit:</strong> Suit doesn&#39;t matter—any K→A run may be removed. Easiest.</li>
+</ul>
+<h2>Strategy tips</h2>
+<ul>
+<li>Empty columns are powerful—but you must fill them before dealing. Prefer moving sequences that free face-down cards.</li>
+<li>Try to expose and turn face-down cards early.</li>
+<li>Building long mixed sequences can block cards; when possible, keep same-suit runs together so they can be removed as a unit.</li>
+<li>Avoid dealing until you&#39;ve made every useful move; the deal adds cards and can make the position harder.</li>
+</ul>
+
+</body>
+</html>
