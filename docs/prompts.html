@@ -264,6 +264,13 @@ Links probably need to use relative paths intead of absolute (<code>./euchre</co
 <p>I grew up calling them &quot;bars&quot;. I found a website that had an asterisk … &quot;pronounced &#39;bowers&#39; except in western ohio where the local dialect says &#39;bars&#39;&quot; … do deep research on this, find the source … and add … draw parallels to immigration and if you can help me find out <em>why</em> this is</p>
 </blockquote>
 <p><strong>Summary.</strong> Researched regional &quot;bar&quot; (right bar, left bar) for euchre trump jacks. Ohio Euchre terminology PDF lists &quot;Bower (AKA Bar)&quot; and notes bar as common in Ohio; AnandTech forum documents &quot;bar&quot; as regional (Ohio/traditional). Exact &quot;western Ohio&quot; asterisk wording not relocated. Added to <code>docs/history.md</code>: a paragraph in &quot;Jucker becomes Euchre&quot; after the bower/march etymology—in Ohio (especially western Ohio) many say &quot;bar&quot;; likely cause: oral transmission in German-heavy Ohio, with <em>Bauer</em> shortened in speech to &quot;bar.&quot; Two reflexes: &quot;bower&quot; in print, &quot;bar&quot; at the table. New sources [13]–[15]: Ohio Euchre PDF, AnandTech thread, Borf appendix note. This prompt added as section 33 in <code>docs/prompts.md</code>.</p>
+<hr>
+<h2>34. Intro block on index (intro.md)</h2>
+<p><strong>Prompt</strong></p>
+<blockquote>
+<p>Let&#39;s create a &#39;intro.md&#39; that is used to inject into the top of &#39;index.html&#39; so that i can create some text on the main page explaining what&#39;s up with this project. fill the intro.md with a friendly intro, links to the readme/github, and a link to check out the prompts and history document.</p>
+</blockquote>
+<p><strong>Summary.</strong> Created <code>intro.md</code> at repo root with a short friendly intro (quick-reference rules for card games, Markdown built to HTML), links to the README and GitHub (placeholder URL for user to replace), and links to <code>docs/prompts.html</code> and <code>docs/history.html</code>. Updated <code>scripts/generate-index.js</code> to require <code>marked</code>, read <code>intro.md</code> when present, render it to HTML, and inject it in a <code>&lt;div class=&quot;intro&quot;&gt;</code> after the <code>&lt;h1&gt;Cheat Sheets&lt;/h1&gt;</code> in the generated index; added <code>.intro</code> styles. Index is regenerated when running the full build (<code>npm run build:all</code>). This prompt added as section 34 in <code>docs/prompts.md</code>.</p>
 
 </body>
 </html>
