@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { marked } = require('marked');
 
 const root = path.resolve(__dirname, '..');
 const skipDirs = new Set(['node_modules', 'scripts', '.git']);
@@ -42,6 +43,13 @@ function generateIndex() {
       .join('\n');
     return `  <h2>${escapeHtml(folder)}</h2>\n  <ul>\n${links}\n  </ul>`;
   });
+  const introPath = path.join(root, 'intro.md');
+  let introHtml = '';
+  if (fs.existsSync(introPath)) {
+    const introMd = fs.readFileSync(introPath, 'utf8');
+    introHtml = `  <div class="intro">\n${marked.parse(introMd).trim()}\n  </div>\n\n`;
+  }
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +59,8 @@ function generateIndex() {
   <style>
     body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 0 auto; padding: 2rem; }
     h1 { font-size: 1.5rem; }
+    .intro { margin-bottom: 1.5rem; }
+    .intro p { margin: 0.5em 0; }
     h2 { font-size: 1.15rem; margin-top: 1.5em; margin-bottom: 0.5em; }
     ul { list-style: none; padding: 0; margin: 0; }
     li { margin: 0.25em 0; }
@@ -60,7 +70,7 @@ function generateIndex() {
 </head>
 <body>
   <h1>Cheat Sheets</h1>
-${sections.join('\n\n')}
+${introHtml}${sections.join('\n\n')}
 </body>
 </html>
 `;

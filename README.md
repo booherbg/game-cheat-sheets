@@ -1,6 +1,8 @@
 # Game Cheat Sheets
 
-Markdown cheat sheets for card games, built to HTML. As an additional feature I included the prompts I used to generate the build system once the first cheat sheet was finished.n
+Markdown cheat sheets for card games, built to HTML. The main index is generated from folder contents and includes an intro block from `intro.md` (friendly blurb, links to README, GitHub, and the docs). As an extra, the [prompts](docs/prompts.html) used to create the build system and add content are kept in the repo for educational purposes. My favorite part is actually [history.md](docs/history.md).
+
+**Browse the published site:** [https://booherbg.github.io/game-cheat-sheets/](https://booherbg.github.io/game-cheat-sheets/)
 
 ## Use
 

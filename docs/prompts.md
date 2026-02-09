@@ -343,3 +343,13 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > I grew up calling them "bars". I found a website that had an asterisk … "pronounced 'bowers' except in western ohio where the local dialect says 'bars'" … do deep research on this, find the source … and add … draw parallels to immigration and if you can help me find out *why* this is
 
 **Summary.** Researched regional "bar" (right bar, left bar) for euchre trump jacks. Ohio Euchre terminology PDF lists "Bower (AKA Bar)" and notes bar as common in Ohio; AnandTech forum documents "bar" as regional (Ohio/traditional). Exact "western Ohio" asterisk wording not relocated. Added to `docs/history.md`: a paragraph in "Jucker becomes Euchre" after the bower/march etymology—in Ohio (especially western Ohio) many say "bar"; likely cause: oral transmission in German-heavy Ohio, with *Bauer* shortened in speech to "bar." Two reflexes: "bower" in print, "bar" at the table. New sources [13]–[15]: Ohio Euchre PDF, AnandTech thread, Borf appendix note. This prompt added as section 33 in `docs/prompts.md`.
+
+---
+
+## 34. Intro block on index (intro.md)
+
+**Prompt**
+
+> Let's create a 'intro.md' that is used to inject into the top of 'index.html' so that i can create some text on the main page explaining what's up with this project. fill the intro.md with a friendly intro, links to the readme/github, and a link to check out the prompts and history document.
+
+**Summary.** Created `intro.md` at repo root with a short friendly intro (quick-reference rules for card games, Markdown built to HTML), links to the README and GitHub (placeholder URL for user to replace), and links to `docs/prompts.html` and `docs/history.html`. Updated `scripts/generate-index.js` to require `marked`, read `intro.md` when present, render it to HTML, and inject it in a `<div class="intro">` after the `<h1>Cheat Sheets</h1>` in the generated index; added `.intro` styles. Index is regenerated when running the full build (`npm run build:all`). This prompt added as section 34 in `docs/prompts.md`.
