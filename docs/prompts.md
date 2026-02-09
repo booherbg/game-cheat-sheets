@@ -235,3 +235,111 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > Links probably need to use relative paths intead of absolute (`./euchre` instead of `/euchre`)
 
 **Summary.** Changed `scripts/generate-index.js` so index links use relative paths instead of absolute. Replaced `/${folder}/${f}` with `${folder}/${f}` so hrefs are e.g. `euchre/euchre.html` rather than `/euchre/euchre.html`. On GitHub Pages (or any host where the site is served from a subpath like `username.github.io/repo-name/`), absolute paths resolve to the domain root and 404; relative paths resolve correctly. The back-to-index links in built pages already use `../index.html` from `build.js` and work as-is. Regenerated `index.html` via the build.
+
+---
+
+## 24. Patience folder: Klondike, Spider, move Euchre Solitaire
+
+**Prompt**
+
+> Create a folder for 'patience games', include standard solitaire (with notes for variants), spider solitaire (from here: https://bicyclecards.com/how-to-play/spider-solitaire ), and move solitaire euchre to the folder.
+
+**Summary.** Created `patience/` with `solitaire.md` (standard Klondike: tableau, foundations, stock/waste, draw three, redeals; variant notes for draw one, no redeal, empty tableau, Forty Thieves). Added `spider-solitaire.md` from Bicycle Cards (two decks, 10 columns, build down, same-suit sequences removed, deal from stock only when no empty columns). Copied `euchre-solitaire.md` into `patience/` and deleted it from `euchre/`. Built all; index gained a patience section.
+
+---
+
+## 25. Klondike naming and file rename
+
+**Prompt**
+
+> oh yeah solitaire is actually klondike right? please update accordingly
+> … Rename the files too
+
+**Summary.** Updated `patience/solitaire.md` title and intro to "Klondike Solitaire" and that Klondike is the classic "solitaire" game. Then created `patience/klondike.md` (same content), removed `patience/solitaire.md` and `patience/solitaire.html`, and rebuilt so the index links to `klondike` instead of `solitaire`.
+
+---
+
+## 26. Spider Solitaire: final deal and winnability
+
+**Prompt**
+
+> [Final deal paragraph] is confusing, what does it mean? … how can there be 10 cards left but only 4 to deal
+> … Is that correct? Is it even possible to win?
+
+**Summary.** Clarified the stock/deal text: standard rule is **5 deals of 10 cards** each, so all 50 cards enter play and the game is winnable. Documented the Bicycle Cards alternate (final deal of 4 cards, 6 never dealt) as an optional variant that can make the game unwinnable. Updated the cheat sheet so the standard rule is primary and the 4-card final deal is clearly labeled as alternate.
+
+---
+
+## 27. Spider: two-suited deck count; simplify suit variants
+
+**Prompt**
+
+> When playing two-suited spider solitaire, how many cards to you use (or decks)
+> … Check your work. You're not making sense.
+> … OK update spider solitaire like this. When playing 1-suit, assume all cards are the same suit … When playing 2-suit, assume all red and all black belong to the same suit. In this way you can use two decks of cards for both variants.
+> … Simplify. Rules should specify 4-suit obviously, and then 2 and 1-suit just specify what a suit means.
+
+**Summary.** Corrected difficulty variants: all use **two decks (104 cards)**; only the meaning of "suit" for removing sequences changes. 4-suit = actual suit; 2-suit = red (hearts+diamonds) or black (spades+clubs); 1-suit = suit doesn't matter. Rewrote the main rules for 4-suit only; the variants section now only redefines "suit" for 2- and 1-suit, without repeated "variant" language.
+
+---
+
+## 28. Freecell and Eight Off cheat sheets
+
+**Prompt**
+
+> Add a freecell overview in the patience folder
+> … Add one for eight-off baker's game
+
+**Summary.** Created `patience/freecell.md`: one deck, 8 columns (7+7+7+7+6+6+6+6), 4 free cells, build down alternating colors, foundations A→K by suit; moving sequences with empty cells/columns. Created `patience/eight-off.md`: like Freecell but 8 cells (4 pre-filled), build down **by same suit**; empty columns only for Kings; noted Baker's Game as 4 cells, same tableau as Freecell. Built both; index updated.
+
+---
+
+## 29. Klondike: seeding for winnable hands
+
+**Prompt**
+
+> Add a rule to [klondike] that suggests how to deal only winnable hands (or increase odds of success). For example, how to place aces in deck before dealing similar to how some board games seed events but keep it random
+> … Wouldn't you want aces in the last part of the deck, not the first? double check your work.
+> … Update so that aces are in the stock but you play with single card deals
+
+**Summary.** Added a "Seeding the deck (friendlier deals)" section to `patience/klondike.md`. Explained deal order: first 28 cards = tableau, next 24 = stock; top of deck = seen first, bottom = bottom of stock (seen last), so Aces belong in the **first** part of the deck for early appearance. Then revised for **single-card deals** and **Aces in the stock only**: after dealing the tableau from 48 cards (Aces removed), build the 24-card stock and insert the 4 Aces at random in the first 12 positions so they appear in the first half when turning one card at a time; optional same for 2s in the first 16 stock positions. Removed the "gentle option" (one Ace in first 7). Rebuilt patience HTML.
+
+---
+
+## 30. Pinochle cheat sheet
+
+**Prompt**
+
+> Make a cheat sheet for pinochle
+
+**Summary.** Created `pinochle/pinochle.md` (and built `pinochle.html`): 48-card deck (two of 9–A per suit), 4 players in partnerships, target 250 (or 500). Documented deal, bidding (high bidder names trump), melding phase (marriages, runs, dix, pinochle, aces/kings/queens/jacks around with point table), trick play (card rank A-10-K-Q-J-9, follow suit, last trick +10), and making the bid (declarers need meld+tricks ≥ bid or lose bid amount). Added strategy tips. Index regenerated with pinochle section.
+
+---
+
+## 31. docs/history.md: trick-taking history and culture
+
+**Prompt**
+
+> Finally, add a history.md file in docs that: Covers the basic history of trick taking games; Has a bias towards euchre (as it relates to the others); Includes interesting and notable connections in the family tree of card games, trick taking, and as it relates to the general culture of american card playing; investigate, briefly, how immigration to the US impacts regional card game culture (especially ohio, michigan, indiana); make it interesting, accurate, and told in the style of popular epic fantasy/sci-fi (while staying correct and not over the top). It should read less like an encyclopedia and more like a fun biopic of card playing culture.
+
+**Summary.** Created `docs/history.md`: narrative history of trick-taking from early European games (Karnöffel, tarot) through Whist (Hoyle, Crown Coffee House) and Bridge replacing it; Juckerspiel in Alsace/Palatinate → Euchre in America (Bauer → bower, Marsch → march, Joker from Euchre packs), spread via Midwest steamboats and German immigration; the "Euchre Belt" (Pennsylvania, Ohio, Indiana, Illinois, Kentucky, Michigan—Michigan as buckle) and family tradition; immigration and regional culture (German settlement, games as cultural luggage, Pinochle from Bezique/Binokel); family tree of Hearts, Spades, Bridge, Pinochle, Euchre. Written in an engaging, accurate narrative style rather than encyclopedic. No HTML build needed for docs unless build includes docs (build does include docs from discoverFolders).
+
+---
+
+## 32. Add citable sources to history.md
+
+**Prompt**
+
+> Update history.md with accurate and correct citaable sources (and urls when necessary) to back up the claims. update prompts.md accordingly.
+
+**Summary.** Updated `docs/history.md` with numbered inline citations [1]–[12] keyed to a **Sources** section at the end. Added or confirmed: Wikipedia (trick-taking, tarot card games, Whist, contract bridge history, Jucker, Euchre, Pinochle, Hearts), Britannica (Edmond Hoyle), David Parlett’s euchre history (parlettgames.uk/histocs/euchre.html), Michigan Public (“Is Michigan the buckle of the euchre belt?”), and ClickOnDetroit (euchre in Michigan). Each source entry includes a short note on what it backs up and the URL. Narrative wording was lightly adjusted where needed (e.g. Biritch, 1850s for Joker, 1909 for Black Lady). This prompt added as section 32 in `docs/prompts.md`.
+
+---
+
+## 33. Bower/"bar" regionalism (Ohio) and immigration link in history.md
+
+**Prompt**
+
+> I grew up calling them "bars". I found a website that had an asterisk … "pronounced 'bowers' except in western ohio where the local dialect says 'bars'" … do deep research on this, find the source … and add … draw parallels to immigration and if you can help me find out *why* this is
+
+**Summary.** Researched regional "bar" (right bar, left bar) for euchre trump jacks. Ohio Euchre terminology PDF lists "Bower (AKA Bar)" and notes bar as common in Ohio; AnandTech forum documents "bar" as regional (Ohio/traditional). Exact "western Ohio" asterisk wording not relocated. Added to `docs/history.md`: a paragraph in "Jucker becomes Euchre" after the bower/march etymology—in Ohio (especially western Ohio) many say "bar"; likely cause: oral transmission in German-heavy Ohio, with *Bauer* shortened in speech to "bar." Two reflexes: "bower" in print, "bar" at the table. New sources [13]–[15]: Ohio Euchre PDF, AnandTech thread, Borf appendix note. This prompt added as section 33 in `docs/prompts.md`.
