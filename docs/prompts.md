@@ -353,3 +353,55 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > Let's create a 'intro.md' that is used to inject into the top of 'index.html' so that i can create some text on the main page explaining what's up with this project. fill the intro.md with a friendly intro, links to the readme/github, and a link to check out the prompts and history document.
 
 **Summary.** Created `intro.md` at repo root with a short friendly intro (quick-reference rules for card games, Markdown built to HTML), links to the README and GitHub (placeholder URL for user to replace), and links to `docs/prompts.html` and `docs/history.html`. Updated `scripts/generate-index.js` to require `marked`, read `intro.md` when present, render it to HTML, and inject it in a `<div class="intro">` after the `<h1>Cheat Sheets</h1>` in the generated index; added `.intro` styles. Index is regenerated when running the full build (`npm run build:all`). This prompt added as section 34 in `docs/prompts.md`.
+
+---
+
+## 35. Citation hyperlinks in history.md
+
+**Prompt**
+
+> Update history.md so that citation references link down to the section via hyperlink. Update prompts.md accordingly.
+
+**Summary.** In `docs/history.md`, each in-text citation (e.g. [1], [2], … [19]) was turned into a link to the corresponding entry in the **Sources** section: body citations use `[\[N\]](#source-N)` and each source line has `<span id="source-N"></span>` before the number. Citations now jump to the correct source when clicked. Source 10 anchor was added where possible (curly apostrophe in title prevented one earlier attempt). This prompt added as section 35 in `docs/prompts.md`.
+
+---
+
+## 36. Germans from Russia aside in history.md (Whist/Cribbage vs Euchre)
+
+**Prompt**
+
+> Add to history.doc as an aside, but only if you can provide citable references.
+
+**Summary.** Added an aside to `docs/history.md` in the Euchre Belt section: **Germans from Russia** (Volga and Black Sea) settled the Northern Plains (North Dakota, South Dakota, Minnesota) in the 1870s onward—a different migration path than the Ohio/Mississippi Euchre Belt. In that region the default card games often weren’t Euchre: **Minnesota Whist** (brought by Norwegian immigrants) and **Cribbage** (English origin) took hold. New sources [16]–[19]: NDSU Germans from Russia Heritage Collection, Wikipedia Volga Germans, Wikipedia Minnesota whist, Wikipedia Cribbage. This prompt added as section 36 in `docs/prompts.md`.
+
+---
+
+## 37. Cribbage deep dive in Minnesota (history.md)
+
+**Prompt**
+
+> Go deeper on cribbage. Why is cribbage so deep in Minnesota, and how does it relate to immigration. Cite your references.
+
+**Summary.** Added a paragraph **“Why Cribbage runs deep in Minnesota”** to `docs/history.md`: English origin (Suckling, 1630s); spread with English settlers, sailors, and fishermen (two-player game); in Canada/Great Lakes, cribbage among explorers, whalers, and fur trade (HBC); railway and work camps (e.g. CPR cribbage board 1880s, Thunder Bay); Wisconsin/Minnesota/Michigan concentration (Milwaukee 1841); Irish lumberjacks from Canada as one vector into the Upper Midwest. New sources [20]–[24]: MVHM History of Cribbage PDF, Canada’s History cribbage board, Thunder Bay Museum CPR cribbage, Milwaukee Journal Sentinel (Wisconsin/MN/MI), FamilySearch Minnesota Emigration and Immigration. This prompt added as section 37 in `docs/prompts.md`.
+
+---
+
+## 38. Spades and Bid Whist in history.md (trick-taking family, immigration)
+
+**Prompt**
+
+> Is there a story here about Spades? How does it relate to the family of trick taking games, and is there a tie into american immigration?
+
+**Summary.** Expanded `docs/history.md` with a **Spades** paragraph: 20th-century American game in the Whist line (partnership, bidding, spades as trump); Cincinnati 1937–1939 (George Coffin), spread via WWII military and college campuses; now one of the most played partnership games in the US. **Bid Whist** described as a close relative with deep roots in **African American** culture: developed by enslaved people (Whist + Bridge), “Black bridge”; **Pullman porters** spread it; Black G.I.s played Spades and Bid Whist and brought both home. Immigration/migration tie: military, Great Migration, Black American community. Family tree sentence updated to include Bid Whist. New sources [25]–[27]: Wikipedia Spades, Wikipedia Bid whist, NPR “Rise and Fly: The Story of Bid Whist.” This prompt added as section 38 in `docs/prompts.md`.
+
+---
+
+## 39. Bid Whist citation and pre–Civil War source (history.md)
+
+**Prompt**
+
+> I need a citation for bid whist being birthed from african american culture - it's an amazing fact and i want to make sure we get it right.
+
+> The sources for bid whist are good but don't specifically call out pre-civil-war era. If you follow the wiki link to the black enterprise article, there's a more direcrt source. please use this … URL is here: https://books.google.com/books?id=cF4EAAAAMBAJ&dq=Bid+whist&pg=PA208 …
+
+**Summary.** Tightened and cited the Bid Whist origin in `docs/history.md`. (1) Added *Rise and Fly* (Morrison & Lamb, 2005) as source [28] and attributed the slavery-era claim to oral tradition and cultural history documented in that book and in NPR. (2) Per user, added the **Black Enterprise** Nov 1999 article ("Are you game for bid whist?") as source [29], citing **Angel Beck's research** (author of *How to Play Bid Whist*, syndicated bid whist columnist): the game has been a tradition **since slavery (pre–Civil War)**; enslaved people developed their own adaptation of the card games they saw white people playing, primarily bridge and whist. Narrative now leads with [29] and explicitly states "slavery (pre–Civil War)" before referencing [26]–[28]. This prompt added as section 39 in `docs/prompts.md`.
