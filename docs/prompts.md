@@ -1,6 +1,6 @@
 # Prompts & Responses
 
-Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response. Before starting I had already created a baseline `euchre.md` cheat sheet for a game night and wanted to automate creating of a printable html file (with formatting), serving out cheat sheets via a simple web interface, and extrapolating to other games using an LLM and `euchre.md` as a base template.
+Documentation of the prompts used to build the game-cheat-sheets project and a concise summary of each response. Before starting I had already created a baseline [`euchre.md`](../euchre/euchre.md) cheat sheet for a game night and wanted to automate creating of a printable HTML file (with formatting), serving out cheat sheets via a simple web interface, and extrapolating to other games using an LLM and `euchre.md` as a base template. Eventually I fell down the rabbit hole of researching how these games relate and realized it was a good opportunity to use agentic AI to run down citable research, resulting in [`docs/history.md`](history.md) being written.
 
 ---
 
