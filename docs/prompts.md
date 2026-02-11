@@ -405,3 +405,15 @@ Documentation of the prompts used to build the game-cheat-sheets project and a c
 > The sources for bid whist are good but don't specifically call out pre-civil-war era. If you follow the wiki link to the black enterprise article, there's a more direcrt source. please use this … URL is here: https://books.google.com/books?id=cF4EAAAAMBAJ&dq=Bid+whist&pg=PA208 …
 
 **Summary.** Tightened and cited the Bid Whist origin in `docs/history.md`. (1) Added *Rise and Fly* (Morrison & Lamb, 2005) as source [28] and attributed the slavery-era claim to oral tradition and cultural history documented in that book and in NPR. (2) Per user, added the **Black Enterprise** Nov 1999 article ("Are you game for bid whist?") as source [29], citing **Angel Beck's research** (author of *How to Play Bid Whist*, syndicated bid whist columnist): the game has been a tradition **since slavery (pre–Civil War)**; enslaved people developed their own adaptation of the card games they saw white people playing, primarily bridge and whist. Narrative now leads with [29] and explicitly states "slavery (pre–Civil War)" before referencing [26]–[28]. This prompt added as section 39 in `docs/prompts.md`.
+
+---
+
+## 40. CLAUDE.md example, audit, and prompts.md guidelines
+
+**Prompt**
+
+> Create the example in @CLAUDE.md
+> … Please audit my @CLAUDE.md - how does it look?
+> … Thank you. Update prompts.md accordingly.
+
+**Summary.** (1) Filled in the incomplete **Example** in `CLAUDE.md` with a terse, technical paragraph: *right bower* / *left bower* definitions, *Bauer* etymology, and inline citations [\[6\]](history.html#source-6)[\[8\]](history.html#source-8) per `docs/history.md` style. (2) Audited `CLAUDE.md`: fixed subject–verb agreement in the Role line ("your passion … are" → "your passion … and you are"); confirmed Instruction, Parameter, and Example were consistent. (3) Added this entry (section 40) to document the full exchange and keep the prompt log complete.
